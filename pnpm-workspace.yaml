@@ -1,2 +1,4 @@
 allowBuilds:
-  esbuild: false
+  protobufjs: false
+minimumReleaseAgeExclude:
+  - '@lovable.dev/vite-tanstack-config@2.7.3'
