@@ -1,6 +1,2 @@
 [build]
   command = "pnpm install && pnpm run build"
-  publish = ".output/public"
-
-[build.environment]
-  NITRO_PRESET = "netlify"
