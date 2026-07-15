@@ -32,12 +32,12 @@ export function RippleMap() {
         >
           <span className={`block rounded-full ${n.kind === "origin" ? "w-6 h-6 bg-gradient-gold shadow-gold animate-pulse-gold" : "w-3 h-3 bg-parchment/80"} border border-gold/60`}
             style={{ boxShadow: `0 0 ${n.kind === "origin" ? 24 : 10}px oklch(0.82 0.15 82 / ${n.kind === "origin" ? 0.8 : 0.5})` }} />
-          <span className={`absolute left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap text-[10px] font-serif tracking-wider px-2 py-1 rounded transition ${hover === n.id ? "bg-background/90 text-gold border border-gold/40" : "text-parchment/70"}`}>
+          <span className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-serif tracking-wider px-2 py-1 rounded transition pointer-events-none ${n.y >= 80 ? "bottom-full mb-2" : "top-full mt-2"} ${hover === n.id ? "bg-background/90 text-gold border border-gold/40" : "text-parchment/70"}`}>
             {n.label}
           </span>
         </motion.button>
       ))}
-      <div className="absolute bottom-3 left-3 text-[10px] tracking-[0.4em] text-muted-foreground uppercase font-serif">Ripple depth · 4 generations · 3,821 lives touched</div>
+      <div className="absolute bottom-3 left-3 z-10 text-[10px] tracking-[0.4em] text-muted-foreground uppercase font-serif">Ripple depth · 4 generations · 3,821 lives touched</div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export function LifeReplay() {
     <div>
       {/* Timeline rail */}
       <div className="relative py-6">
-        <div className="absolute left-0 right-0 top-1/2 h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.82 0.15 82 / 0.6), transparent)" }} />
+        <div className="absolute left-0 right-0 top-1/2 h-px" style={{ marginTop: 58, background: "linear-gradient(90deg, transparent, oklch(0.82 0.15 82 / 0.6), transparent)" }} />
         <div className="relative flex items-center justify-between gap-2">
           {lifeMoments.map(m => {
             const isActive = m.id === active.id;
