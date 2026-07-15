@@ -7,7 +7,7 @@ import viteReact from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [
     tanstackStart({
-      server: { entry: "server", preset: "netlify" },
+      server: { entry: "server" },
     }),
     viteReact(),
     tailwindcss(),
