@@ -4,7 +4,7 @@ import {
   Activity, Sparkles, Timer, Users, ShieldCheck, Waves,
   ArrowRight
 } from "lucide-react";
-import { OrnateFrame } from "@/components/verdictum/OrnateFrame";
+import { OrnateFrame } from "@/pages/verdictum/OrnateFrame";
 import { recentVerdicts as initialVerdicts, activity as initialActivity, souls as initialSouls, type Soul } from "@/lib/mock-data";
 import {
   AreaChart, Area, ResponsiveContainer, XAxis, YAxis, Tooltip,
@@ -23,9 +23,9 @@ function useLiveSimulation() {
     h: `${i}:00`, verdicts: Math.floor(40 + Math.sin(i / 2.5) * 22 + Math.random() * 18),
     inscribed: Math.floor(20 + Math.cos(i / 3) * 12 + Math.random() * 10),
   })));
-  
+
   const [heatData, setHeatData] = useState(() => Array.from({ length: 84 }).map(() => Math.floor(Math.random() * 100)));
-  
+
   const [radarData, setRadarData] = useState(() => [
     { subject: "Love", A: 62 }, { subject: "Greed", A: 78 },
     { subject: "Fear", A: 71 }, { subject: "Compassion", A: 44 },
@@ -63,11 +63,11 @@ function useLiveSimulation() {
           const realms = ["Ascendant Gardens", "Realm of Restoration", "The Long Silence"];
           const tones = ["gold", "celestial", "ember"] as const;
           const next = [...prev];
-          next.unshift({ 
-            name: names[Math.floor(Math.random() * names.length)], 
-            realm: realms[Math.floor(Math.random() * realms.length)], 
-            when: "just now", 
-            tone: tones[Math.floor(Math.random() * tones.length)] 
+          next.unshift({
+            name: names[Math.floor(Math.random() * names.length)],
+            realm: realms[Math.floor(Math.random() * realms.length)],
+            when: "just now",
+            tone: tones[Math.floor(Math.random() * tones.length)]
           });
           if (next.length > 4) next.pop();
           return next;
@@ -135,7 +135,7 @@ function AnimatedCount({ target, suffix = "" }: { target: number | string; suffi
 
   useEffect(() => {
     if (numTarget === null) return;
-    
+
     // If already animated once, update immediately for live streams
     if (done.current) {
       setVal(numTarget);
@@ -155,7 +155,7 @@ function AnimatedCount({ target, suffix = "" }: { target: number | string; suffi
         done.current = true;
       }
     };
-    
+
     const t = setTimeout(() => {
       frame = requestAnimationFrame(tick);
     }, 50);
@@ -173,8 +173,8 @@ function AnimatedCount({ target, suffix = "" }: { target: number | string; suffi
 function ProgressBar({ value, color = "gold" }: { value: number; color?: "gold" | "celestial" | "ember" }) {
   const fill =
     color === "celestial" ? "background: linear-gradient(90deg, oklch(0.80 0.14 240), oklch(0.55 0.12 220)); box-shadow: 0 0 10px oklch(0.70 0.14 240 / 0.5)"
-    : color === "ember" ? "background: linear-gradient(90deg, oklch(0.75 0.18 35), oklch(0.52 0.17 20)); box-shadow: 0 0 10px oklch(0.62 0.19 30 / 0.5)"
-    : "background: linear-gradient(90deg, oklch(0.90 0.13 85), oklch(0.65 0.14 70)); box-shadow: 0 0 10px oklch(0.82 0.15 82 / 0.5)";
+      : color === "ember" ? "background: linear-gradient(90deg, oklch(0.75 0.18 35), oklch(0.52 0.17 20)); box-shadow: 0 0 10px oklch(0.62 0.19 30 / 0.5)"
+        : "background: linear-gradient(90deg, oklch(0.90 0.13 85), oklch(0.65 0.14 70)); box-shadow: 0 0 10px oklch(0.82 0.15 82 / 0.5)";
   return (
     <div className="progress-cosmic mt-2">
       <motion.div className="progress-cosmic-fill" initial={{ width: 0 }}
@@ -341,14 +341,14 @@ function Dashboard() {
             <AnimatePresence initial={false}>
               {liveQueue.slice(0, 5).map((s, i) => (
                 <motion.div key={s.id}
-                  initial={{ opacity: 0, x: 20, height: 0 }} 
-                  animate={{ opacity: 1, x: 0, height: "auto" }} 
+                  initial={{ opacity: 0, x: 20, height: 0 }}
+                  animate={{ opacity: 1, x: 0, height: "auto" }}
                   exit={{ opacity: 0, x: -20, height: 0 }}
                   className="block group">
                   <div className="flex items-center justify-between p-3 rounded-none border border-celestial/20 bg-celestial/5 gap-2 relative overflow-hidden">
                     {/* Hover scanline */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-celestial/20 to-transparent -translate-y-full group-hover:animate-scanline pointer-events-none" />
-                    
+
                     <div className="min-w-0 flex-1 relative z-10">
                       <div className="flex items-center gap-2 mb-0.5">
                         <span className={`text-[9px] tracking-wide font-serif px-1.5 py-0.5 rounded-sm ${s.priority === "Cosmic" ? "bg-ember/15 text-ember border border-ember/30" : s.priority === "High" ? "bg-gold/15 text-gold border border-gold/30" : "bg-celestial/15 text-celestial border border-celestial/40"}`}>
@@ -446,7 +446,7 @@ function DashboardHeader() {
         </div>
         <h1 className="font-serif text-3xl md:text-5xl text-celestial leading-tight">Core Engine Online</h1>
         <p className="mt-2 text-celestial/70 max-w-xl text-sm font-mono tracking-wide">
-          &gt; SYSTEM IS CLEANING OR DOING ITS WORKS_<br/>
+          &gt; SYSTEM IS CLEANING OR DOING ITS WORKS_<br />
           &gt; INDEXING QUEUE... CONTINUOUS UPDATES APPLIED.
         </p>
       </div>

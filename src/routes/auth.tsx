@@ -2,8 +2,8 @@ import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
-import { AmbientBackground } from "@/components/verdictum/AmbientBackground";
-import { Sigil } from "@/components/verdictum/OrnateFrame";
+import { AmbientBackground } from "@/pages/verdictum/AmbientBackground";
+import { Sigil } from "@/pages/verdictum/OrnateFrame";
 import { signIn, signUp, resetPassword, signInWithGoogle } from "@/lib/auth";
 
 export const Route = createFileRoute("/auth")({ component: AuthPage });

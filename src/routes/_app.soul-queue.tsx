@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMemo, useState, useEffect } from "react";
 import { Search, Filter, ArrowUpDown, ArrowRight } from "lucide-react";
-import { OrnateFrame } from "@/components/verdictum/OrnateFrame";
+import { OrnateFrame } from "@/pages/verdictum/OrnateFrame";
 import { souls as initialSouls, type Soul } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/_app/soul-queue")({

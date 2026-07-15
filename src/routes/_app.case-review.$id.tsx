@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ChevronLeft } from "lucide-react";
-import { OrnateFrame } from "@/components/verdictum/OrnateFrame";
-import { LifeReplay } from "@/components/verdictum/LifeReplay";
-import { IntentRadar } from "@/components/verdictum/IntentRadar";
-import { RippleMap } from "@/components/verdictum/RippleMap";
-import { AlternateReality } from "@/components/verdictum/AlternateReality";
-import { OracleRecommendation } from "@/components/verdictum/OracleRecommendation";
-import { FinalVerdict } from "@/components/verdictum/FinalVerdict";
+import { OrnateFrame } from "@/pages/verdictum/OrnateFrame";
+import { LifeReplay } from "@/pages/verdictum/LifeReplay";
+import { IntentRadar } from "@/pages/verdictum/IntentRadar";
+import { RippleMap } from "@/pages/verdictum/RippleMap";
+import { AlternateReality } from "@/pages/verdictum/AlternateReality";
+import { OracleRecommendation } from "@/pages/verdictum/OracleRecommendation";
+import { FinalVerdict } from "@/pages/verdictum/FinalVerdict";
 import { souls } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/_app/case-review/$id")({

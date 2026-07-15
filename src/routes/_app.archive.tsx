@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMemo, useState, useEffect } from "react";
 import { Search, Filter, ArrowUpDown, Archive } from "lucide-react";
-import { OrnateFrame } from "@/components/verdictum/OrnateFrame";
+import { OrnateFrame } from "@/pages/verdictum/OrnateFrame";
 import { souls as initialSouls, type Soul } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/_app/archive")({
@@ -19,7 +19,7 @@ function ArchivePage() {
   const [archiveRecords, setArchiveRecords] = useState(() => {
     const judged = initialSouls.filter(s => s.status === "Judged");
     // duplicate some to make the archive look full
-    return [...judged, ...judged.map(s => ({...s, id: s.id + "-copy", name: s.name + " (Echo)"}))];
+    return [...judged, ...judged.map(s => ({ ...s, id: s.id + "-copy", name: s.name + " (Echo)" }))];
   });
 
   const rows = useMemo(() => {
@@ -69,7 +69,7 @@ function ArchivePage() {
             <tbody>
               <AnimatePresence initial={false}>
                 {rows.map((s, i) => (
-                  <motion.tr 
+                  <motion.tr
                     key={s.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}

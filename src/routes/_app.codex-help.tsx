@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BookOpen, Terminal, Shield, Scale } from "lucide-react";
-import { OrnateFrame } from "@/components/verdictum/OrnateFrame";
+import { OrnateFrame } from "@/pages/verdictum/OrnateFrame";
 
 export const Route = createFileRoute("/_app/codex-help")({
   head: () => ({ meta: [{ title: "Codex Help — VERDICTUM" }] }),
@@ -19,7 +19,7 @@ function CodexHelp() {
           </div>
           <h1 className="mt-2 font-serif text-4xl md:text-5xl text-celestial">Codex Manual</h1>
           <p className="mt-2 text-celestial/70 font-mono tracking-wide text-sm">
-            &gt; ACCESSING KNOWLEDGE BASE...<br/>
+            &gt; ACCESSING KNOWLEDGE BASE...<br />
             &gt; TRIBUNAL PROCEDURES VER 4.0 LOADED.
           </p>
         </div>
@@ -52,7 +52,7 @@ function CodexHelp() {
                 As a Judge, your primary interface is the <strong>Dashboard</strong>, which provides a real-time overview of Universe Health and the current processing load. The <strong>Soul Queue</strong> contains all pending records requiring attention.
               </p>
               <div className="p-4 bg-background/50 border border-border/50 rounded-sm font-mono text-[11px] text-celestial/70">
-                &gt; RULE 1.1: ALL DECISIONS ARE FINAL.<br/>
+                &gt; RULE 1.1: ALL DECISIONS ARE FINAL.<br />
                 &gt; RULE 1.2: DO NOT ATTEMPT TO ALTER THE TIMELINE DIRECTLY.
               </div>
             </div>

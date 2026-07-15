@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bell, CheckCircle2, ShieldAlert, Zap } from "lucide-react";
-import { OrnateFrame } from "@/components/verdictum/OrnateFrame";
+import { OrnateFrame } from "@/pages/verdictum/OrnateFrame";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_app/notifications")({
@@ -46,9 +46,9 @@ function Notifications() {
           </div>
           <h1 className="mt-2 font-serif text-4xl md:text-5xl text-celestial">Notifications</h1>
         </div>
-        
+
         {unreadCount > 0 && (
-          <button 
+          <button
             onClick={markAllRead}
             className="text-[10px] font-serif tracking-widest text-celestial/70 hover:text-celestial border border-celestial/30 hover:border-celestial px-4 py-2 hover:bg-celestial/10 transition-all">
             MARK ALL AS READ
@@ -69,9 +69,9 @@ function Notifications() {
               <OrnateFrame className={`p-4 md:p-6 transition-all duration-300 ${!n.read ? 'panel-holographic border-celestial/40' : 'panel-glass border-border/30 opacity-75'}`}>
                 <div className="flex gap-4 sm:gap-6">
                   <div className="shrink-0 mt-1">
-                    {n.type === 'alert' ? <ShieldAlert className="w-6 h-6 text-ember glow-ember" /> : 
-                     n.type === 'verdict' ? <CheckCircle2 className="w-6 h-6 text-gold glow-gold" /> :
-                     <Zap className="w-6 h-6 text-celestial glow-celestial" />}
+                    {n.type === 'alert' ? <ShieldAlert className="w-6 h-6 text-ember glow-ember" /> :
+                      n.type === 'verdict' ? <CheckCircle2 className="w-6 h-6 text-gold glow-gold" /> :
+                        <Zap className="w-6 h-6 text-celestial glow-celestial" />}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">

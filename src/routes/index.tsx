@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { AmbientBackground } from "@/components/verdictum/AmbientBackground";
-import { Sigil } from "@/components/verdictum/OrnateFrame";
+import { AmbientBackground } from "@/pages/verdictum/AmbientBackground";
+import { Sigil } from "@/pages/verdictum/OrnateFrame";
 import { ArrowRight, Scale, Eye, Clock, Star, Zap, Shield, Layers, Globe, ChevronDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -91,7 +91,7 @@ function CosmicRing() {
           <circle cx="200" cy="200" r="188" stroke="url(#rng)" strokeWidth="0.6" opacity="0.5" />
           <circle cx="200" cy="200" r="188" stroke="url(#rng)" strokeWidth="0.5" opacity="0.3" strokeDasharray="3 12" />
           {/* Dot markers */}
-          {[0,45,90,135,180,225,270,315].map(a => (
+          {[0, 45, 90, 135, 180, 225, 270, 315].map(a => (
             <circle key={a} cx={200 + 188 * Math.cos(a * Math.PI / 180)} cy={200 + 188 * Math.sin(a * Math.PI / 180)}
               r="2.5" fill="oklch(0.88 0.12 85)" opacity="0.7" />
           ))}
@@ -341,8 +341,8 @@ function Landing() {
                   background: p.color === "gold"
                     ? "radial-gradient(ellipse at 30% 20%, oklch(0.82 0.15 82 / 0.12), transparent 60%)"
                     : p.color === "celestial"
-                    ? "radial-gradient(ellipse at 30% 20%, oklch(0.70 0.14 240 / 0.12), transparent 60%)"
-                    : "radial-gradient(ellipse at 30% 20%, oklch(0.62 0.19 30 / 0.12), transparent 60%)"
+                      ? "radial-gradient(ellipse at 30% 20%, oklch(0.70 0.14 240 / 0.12), transparent 60%)"
+                      : "radial-gradient(ellipse at 30% 20%, oklch(0.62 0.19 30 / 0.12), transparent 60%)"
                 }}
               />
               {/* Icon with ring */}
@@ -351,7 +351,7 @@ function Landing() {
                   style={{
                     background: p.color === "gold" ? "oklch(0.82 0.15 82 / 0.1)"
                       : p.color === "celestial" ? "oklch(0.70 0.14 240 / 0.1)"
-                      : "oklch(0.62 0.19 30 / 0.1)",
+                        : "oklch(0.62 0.19 30 / 0.1)",
                     border: `1px solid ${p.color === "gold" ? "oklch(0.82 0.15 82 / 0.3)" : p.color === "celestial" ? "oklch(0.70 0.14 240 / 0.3)" : "oklch(0.62 0.19 30 / 0.3)"}`,
                   }} />
                 <p.icon className={`w-5 h-5 absolute inset-0 m-auto ${p.color === "gold" ? "text-gold glow-gold" : p.color === "celestial" ? "text-celestial glow-celestial" : "text-ember glow-ember"}`} strokeWidth={1.4} />
@@ -445,7 +445,7 @@ function Landing() {
             <Link to="/auth"
               className="group inline-flex items-center gap-3 px-10 py-4 rounded-none bg-background border border-gold text-gold font-serif tracking-[0.3em] text-sm hover:shadow-gold hover:bg-gold/10 transition-all duration-300 overflow-hidden relative">
               <span className="absolute inset-0 bg-gradient-gold opacity-0 group-hover:opacity-10 transition-opacity" />
-              <span className="relative z-10">ENTER TRIBUNAL</span> 
+              <span className="relative z-10">ENTER TRIBUNAL</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-gold"></span>
               <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-gold"></span>
