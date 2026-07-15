@@ -1,8 +1,6 @@
 [build]
   command = "pnpm install && pnpm run build"
-  publish = "dist"
-  
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  publish = ".output/public"
+
+[build.environment]
+  NITRO_PRESET = "netlify"
