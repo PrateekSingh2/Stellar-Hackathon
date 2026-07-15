@@ -176,6 +176,8 @@ function Landing() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <AmbientBackground />
+      <div className="absolute inset-0 cyber-grid opacity-30 pointer-events-none z-0" />
+      <div className="absolute inset-0 w-full h-[10px] bg-celestial/20 animate-scanline blur-[2px] pointer-events-none z-50" />
 
       {/* ── Sticky Navbar ── */}
       <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${navScrolled ? "py-3 panel-glass border-b border-gold/10" : "py-5 bg-transparent"}`}>
@@ -207,11 +209,12 @@ function Landing() {
               SIGN IN
             </Link>
             <Link to="/auth"
-              className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-gradient-gold text-primary-foreground font-serif tracking-[0.25em] text-[11px] shadow-gold overflow-hidden">
+              className="group relative inline-flex items-center gap-2 px-5 py-2.5 bg-background/50 border border-gold text-gold font-serif tracking-[0.25em] text-[11px] overflow-hidden hover:bg-gold/10 hover:shadow-gold transition-all duration-300">
               <span className="relative z-10">ENTER</span>
               <ArrowRight className="w-3.5 h-3.5 relative z-10 transition-transform group-hover:translate-x-0.5" />
-              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: "linear-gradient(135deg, oklch(0.95 0.13 85), oklch(0.72 0.14 70))" }} />
+              {/* Corner brackets */}
+              <span className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-gold"></span>
+              <span className="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r border-gold"></span>
             </Link>
           </motion.div>
         </div>
@@ -226,18 +229,19 @@ function Landing() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full panel-glass border border-gold/25 mb-8">
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse-gold" />
-            <span className="font-serif text-[9px] tracking-[0.5em] text-gold/80 uppercase">Cosmic Tribunal Interface · Active</span>
+            className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 rounded-none panel-holographic border border-celestial/40 mb-8 shadow-[0_0_15px_oklch(0.7_0.14_240/0.3)]">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-none bg-celestial animate-pulse-celestial shrink-0" />
+            <span className="font-serif text-[8px] sm:text-[9px] tracking-[0.3em] sm:tracking-[0.5em] text-celestial uppercase">Cosmic Tribunal Interface · Active</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif text-[clamp(4rem,13vw,11rem)] leading-[0.9] tracking-[0.05em]"
+            className="font-serif text-[clamp(2.5rem,12vw,11rem)] leading-[0.9] tracking-[0.05em] sm:tracking-[0.1em]"
           >
-            <span className="text-gradient-gold">VERDIC</span><span className="text-parchment/90">TUM</span>
+            <span className="text-gradient-gold">VERDIC</span>
+            <span className="text-parchment/90">TUM</span>
           </motion.h1>
 
           <motion.p
@@ -255,11 +259,13 @@ function Landing() {
             transition={{ delay: 0.9 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link to="/auth"
-              className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-lg bg-gradient-gold text-primary-foreground font-serif tracking-[0.3em] text-sm shadow-gold-lg overflow-hidden hover:shadow-[0_0_80px_oklch(0.82_0.15_82/0.7)] transition-all duration-300">
-              <span className="relative z-10">ENTER TRIBUNAL</span>
+              className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-none bg-background/50 border border-celestial text-celestial font-serif tracking-[0.3em] text-sm overflow-hidden hover:bg-celestial/10 hover:shadow-celestial transition-all duration-300">
+              <span className="absolute -inset-1 bg-gradient-celestial opacity-0 group-hover:opacity-20 blur-md transition-opacity"></span>
+              <span className="relative z-10 animate-cyber-pulse">INITIALIZE TRIBUNAL</span>
               <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
-              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-                style={{ background: "linear-gradient(135deg, oklch(0.96 0.13 88), oklch(0.74 0.14 72))" }} />
+              {/* Corner brackets */}
+              <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-celestial"></span>
+              <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-celestial"></span>
             </Link>
             <a href="#doctrine"
               className="inline-flex items-center gap-2 font-serif text-[11px] tracking-[0.35em] text-muted-foreground hover:text-gold transition-colors border border-border/60 hover:border-gold/30 px-6 py-4 rounded-lg hover:bg-gold/5">
@@ -282,7 +288,7 @@ function Landing() {
 
       {/* ── Universe Stats ── */}
       <section className="relative z-10 py-20 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {[
             { label: "Souls Inscribed", value: 1204881, suffix: "", icon: Star },
             { label: "Verdicts Delivered", value: 847293, suffix: "", icon: Scale },
@@ -292,12 +298,14 @@ function Landing() {
             <motion.div key={s.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="panel-glass rounded-xl p-5 text-center group hover:panel-glass-hover transition-all duration-400 ornate-corners relative">
+              className="panel-holographic rounded-xl p-5 text-center group hover:bg-celestial/5 hover:border-celestial/50 transition-all duration-400 ornate-corners relative border-celestial/20">
               <span className="corner-tr" /><span className="corner-bl" />
-              <s.icon className="w-5 h-5 text-gold mx-auto mb-3 group-hover:glow-gold transition-all" strokeWidth={1.3} />
-              <p className="font-serif text-3xl md:text-4xl text-gradient-gold stat-number">
+              <div className="absolute inset-0 bg-gradient-celestial opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none" />
+              <s.icon className="w-5 h-5 text-celestial mx-auto mb-3 group-hover:glow-celestial transition-all" strokeWidth={1.3} />
+              <p className="font-serif text-3xl md:text-4xl text-gradient-celestial stat-number">
                 <Counter target={s.value} suffix={s.suffix} />
               </p>
               <p className="mt-1 text-[9px] tracking-[0.35em] text-muted-foreground uppercase">{s.label}</p>
@@ -322,9 +330,10 @@ function Landing() {
             <motion.div key={i}
               initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.2 } }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="panel-glass rounded-xl p-7 relative ornate-corners group hover:panel-glass-hover transition-all duration-500 overflow-hidden">
+              className="panel-holographic rounded-xl p-7 relative ornate-corners group hover:bg-celestial/5 hover:border-celestial/50 border-celestial/20 transition-all duration-500 overflow-hidden">
               <span className="corner-tr" /><span className="corner-bl" />
               {/* BG glow */}
               <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -338,18 +347,18 @@ function Landing() {
               />
               {/* Icon with ring */}
               <div className="relative w-12 h-12 mb-5">
-                <div className={`absolute inset-0 rounded-full ${p.color === "gold" ? "animate-pulse-gold" : p.color === "celestial" ? "animate-pulse-celestial" : ""}`}
+                <div className={`absolute inset-0 rounded-none ${p.color === "gold" ? "animate-pulse-gold" : p.color === "celestial" ? "animate-pulse-celestial" : ""}`}
                   style={{
                     background: p.color === "gold" ? "oklch(0.82 0.15 82 / 0.1)"
                       : p.color === "celestial" ? "oklch(0.70 0.14 240 / 0.1)"
                       : "oklch(0.62 0.19 30 / 0.1)",
                     border: `1px solid ${p.color === "gold" ? "oklch(0.82 0.15 82 / 0.3)" : p.color === "celestial" ? "oklch(0.70 0.14 240 / 0.3)" : "oklch(0.62 0.19 30 / 0.3)"}`,
                   }} />
-                <p.icon className={`w-5 h-5 absolute inset-0 m-auto ${p.color === "gold" ? "text-gold" : p.color === "celestial" ? "text-celestial" : "text-ember"}`} strokeWidth={1.4} />
+                <p.icon className={`w-5 h-5 absolute inset-0 m-auto ${p.color === "gold" ? "text-gold glow-gold" : p.color === "celestial" ? "text-celestial glow-celestial" : "text-ember glow-ember"}`} strokeWidth={1.4} />
               </div>
-              <h3 className="font-serif text-xl text-gradient-gold">{p.title}</h3>
+              <h3 className={`font-serif text-xl ${p.color === "gold" ? "text-gradient-gold" : p.color === "celestial" ? "text-gradient-celestial" : "text-ember"}`}>{p.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground/80 leading-relaxed">{p.body}</p>
-              <div className="mt-5 pt-4 border-t border-border/40 flex items-center justify-between">
+              <div className="mt-5 pt-4 border-t border-celestial/20 flex items-center justify-between">
                 <p className={`font-serif text-2xl ${p.color === "gold" ? "text-gradient-gold" : p.color === "celestial" ? "text-gradient-celestial" : "text-ember"}`}>{p.stat}</p>
                 <p className="text-[9px] tracking-[0.3em] text-muted-foreground uppercase">{p.statLabel}</p>
               </div>
@@ -369,11 +378,13 @@ function Landing() {
             <motion.div key={i}
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
+              whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ delay: i * 0.08 }}
-              className="panel-glass rounded-xl p-5 min-w-[200px] snap-start group hover:panel-glass-hover transition-all duration-400 ornate-corners relative shrink-0">
+              className="panel-holographic rounded-xl p-5 min-w-[200px] snap-start group hover:bg-celestial/5 hover:border-celestial/50 border-celestial/20 transition-all duration-400 ornate-corners relative shrink-0">
               <span className="corner-tr" /><span className="corner-bl" />
-              <f.icon className="w-5 h-5 text-gold mb-3 group-hover:glow-gold transition-all" strokeWidth={1.3} />
+              <div className="absolute inset-0 bg-gradient-celestial opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none" />
+              <f.icon className="w-5 h-5 text-celestial mb-3 group-hover:glow-celestial transition-all" strokeWidth={1.3} />
               <p className="font-serif text-sm text-parchment/90">{f.label}</p>
               <p className="mt-1 text-xs text-muted-foreground/70">{f.desc}</p>
             </motion.div>
@@ -383,43 +394,64 @@ function Landing() {
 
       {/* ── Tribunal Quote ── */}
       <section id="tribunal" className="relative z-10 px-6 py-28 max-w-4xl mx-auto text-center">
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
-          <div className="divider-gold w-32 mx-auto mb-10" />
-          <Sigil className="w-12 h-12 mx-auto mb-8 opacity-60" />
-          <p className="font-display italic text-2xl md:text-4xl text-parchment/85 leading-relaxed">
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="panel-holographic border-celestial/30 p-10 md:p-14 relative ornate-corners rounded-xl">
+          <span className="corner-tr" /><span className="corner-bl" />
+          <div className="absolute inset-0 cyber-grid opacity-20 pointer-events-none" />
+          <Sigil className="w-12 h-12 mx-auto mb-8 opacity-60 text-celestial" />
+          <p className="font-display italic text-xl sm:text-2xl md:text-3xl text-celestial/90 leading-relaxed relative z-10">
             &ldquo;The Judges do not condemn. They read what is already written,
             and speak the name of the realm the soul has already chosen.&rdquo;
           </p>
-          <p className="mt-8 font-serif text-[10px] tracking-[0.55em] text-gold/60">— FIRST CODEX, VERSE I —</p>
-          <div className="divider-gold w-32 mx-auto mt-10" />
+          <p className="mt-8 font-serif text-[8px] sm:text-[10px] tracking-[0.4em] sm:tracking-[0.55em] text-celestial/60 relative z-10">— FIRST CODEX, VERSE I —</p>
+        </motion.div>
+      </section>
+
+      {/* ── Archive Teaser ── */}
+      <section id="archive" className="relative z-10 px-6 md:px-12 py-20 max-w-5xl mx-auto">
+        <motion.div className="panel-holographic rounded-xl p-8 md:p-14 text-center ornate-corners relative overflow-hidden border-celestial/30"
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <span className="corner-tr" /><span className="corner-bl" />
+          <div className="absolute inset-0 bg-gradient-celestial opacity-10 pointer-events-none" />
+          <Layers className="w-10 h-10 text-celestial mx-auto mb-6 opacity-80 glow-celestial" />
+          <h2 className="font-serif text-3xl md:text-5xl text-celestial mb-4">The Eternal Archive</h2>
+          <p className="text-celestial/80 max-w-2xl mx-auto mb-8 leading-relaxed font-serif text-lg">
+            A limitless ledger of final verdicts. Search and review the fates of past souls across all known realms and epochs.
+          </p>
+          <Link to="/archive" className="inline-flex items-center gap-2 px-8 py-3 bg-celestial/10 border border-celestial/50 text-celestial font-serif tracking-[0.2em] text-xs hover:bg-celestial/20 hover:shadow-[0_0_15px_oklch(0.7_0.14_240/0.4)] hover:border-celestial transition-all">
+            ACCESS ARCHIVE <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </motion.div>
       </section>
 
       {/* ── CTA ── */}
-      <section id="codex" className="relative z-10 px-6 pb-36 max-w-3xl mx-auto text-center">
+      <section id="codex" className="relative z-10 px-4 sm:px-6 pb-36 max-w-3xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="panel-engraved rounded-2xl p-10 md:p-14 relative ornate-corners overflow-hidden animate-border-flow">
+          className="panel-engraved rounded-2xl p-6 sm:p-10 md:p-14 relative ornate-corners overflow-hidden animate-border-flow">
           <span className="corner-tr" /><span className="corner-bl" />
           {/* BG shimmer */}
           <div className="absolute inset-0 opacity-20 pointer-events-none"
             style={{ background: "radial-gradient(ellipse at 50% 0%, oklch(0.82 0.15 82 / 0.25), transparent 55%)" }}
           />
           <Sigil className="w-16 h-16 mx-auto relative z-10" />
-          <h3 className="mt-6 font-serif text-3xl md:text-4xl text-gradient-gold relative z-10">Take your seat at the Bench</h3>
-          <p className="mt-3 text-muted-foreground/80 relative z-10 max-w-md mx-auto">
+          <h3 className="mt-6 font-serif text-2xl sm:text-3xl md:text-4xl text-gradient-gold relative z-10">Take your seat at the Bench</h3>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground/80 relative z-10 max-w-md mx-auto px-2">
             Cosmic Judges only. Your sigil will be verified against the Codex before entry is granted.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4 relative z-10">
             <Link to="/auth"
-              className="group inline-flex items-center gap-3 px-10 py-4 rounded-lg bg-gradient-gold text-primary-foreground font-serif tracking-[0.3em] text-sm shadow-gold-lg hover:shadow-[0_0_80px_oklch(0.82_0.15_82/0.65)] transition-all duration-300 overflow-hidden relative">
-              ENTER TRIBUNAL <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              className="group inline-flex items-center gap-3 px-10 py-4 rounded-none bg-background border border-gold text-gold font-serif tracking-[0.3em] text-sm hover:shadow-gold hover:bg-gold/10 transition-all duration-300 overflow-hidden relative">
+              <span className="absolute inset-0 bg-gradient-gold opacity-0 group-hover:opacity-10 transition-opacity" />
+              <span className="relative z-10">ENTER TRIBUNAL</span> 
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-gold"></span>
+              <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-gold"></span>
             </Link>
           </div>
-          <p className="mt-8 text-[9px] tracking-[0.45em] text-muted-foreground/50 relative z-10">
+          <p className="mt-8 text-[8px] sm:text-[9px] tracking-[0.25em] sm:tracking-[0.45em] text-muted-foreground/50 relative z-10">
             VERDICTUM · CODEX BUILD MMXXVI · ALL EPOCHS OBSERVED
           </p>
         </motion.div>

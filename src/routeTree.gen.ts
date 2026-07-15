@@ -15,7 +15,9 @@ import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppSoulQueueRouteImport } from './routes/_app.soul-queue'
 import { Route as AppSettingsRouteImport } from './routes/_app.settings'
+import { Route as AppNotificationsRouteImport } from './routes/_app.notifications'
 import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
+import { Route as AppCodexHelpRouteImport } from './routes/_app.codex-help'
 import { Route as AppArchiveRouteImport } from './routes/_app.archive'
 import { Route as AppCaseReviewIdRouteImport } from './routes/_app.case-review.$id'
 
@@ -48,9 +50,19 @@ const AppSettingsRoute = AppSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => AppRoute,
 } as any)
+const AppNotificationsRoute = AppNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppDashboardRoute = AppDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCodexHelpRoute = AppCodexHelpRouteImport.update({
+  id: '/codex-help',
+  path: '/codex-help',
   getParentRoute: () => AppRoute,
 } as any)
 const AppArchiveRoute = AppArchiveRouteImport.update({
@@ -69,7 +81,9 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/archive': typeof AppArchiveRoute
+  '/codex-help': typeof AppCodexHelpRoute
   '/dashboard': typeof AppDashboardRoute
+  '/notifications': typeof AppNotificationsRoute
   '/settings': typeof AppSettingsRoute
   '/soul-queue': typeof AppSoulQueueRoute
   '/case-review/$id': typeof AppCaseReviewIdRoute
@@ -79,7 +93,9 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/archive': typeof AppArchiveRoute
+  '/codex-help': typeof AppCodexHelpRoute
   '/dashboard': typeof AppDashboardRoute
+  '/notifications': typeof AppNotificationsRoute
   '/settings': typeof AppSettingsRoute
   '/soul-queue': typeof AppSoulQueueRoute
   '/case-review/$id': typeof AppCaseReviewIdRoute
@@ -91,7 +107,9 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_app/archive': typeof AppArchiveRoute
+  '/_app/codex-help': typeof AppCodexHelpRoute
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/notifications': typeof AppNotificationsRoute
   '/_app/settings': typeof AppSettingsRoute
   '/_app/soul-queue': typeof AppSoulQueueRoute
   '/_app/case-review/$id': typeof AppCaseReviewIdRoute
@@ -103,7 +121,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/sitemap.xml'
     | '/archive'
+    | '/codex-help'
     | '/dashboard'
+    | '/notifications'
     | '/settings'
     | '/soul-queue'
     | '/case-review/$id'
@@ -113,7 +133,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/sitemap.xml'
     | '/archive'
+    | '/codex-help'
     | '/dashboard'
+    | '/notifications'
     | '/settings'
     | '/soul-queue'
     | '/case-review/$id'
@@ -124,7 +146,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/sitemap.xml'
     | '/_app/archive'
+    | '/_app/codex-help'
     | '/_app/dashboard'
+    | '/_app/notifications'
     | '/_app/settings'
     | '/_app/soul-queue'
     | '/_app/case-review/$id'
@@ -181,11 +205,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppSettingsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/notifications': {
+      id: '/_app/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AppNotificationsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/dashboard': {
       id: '/_app/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/codex-help': {
+      id: '/_app/codex-help'
+      path: '/codex-help'
+      fullPath: '/codex-help'
+      preLoaderRoute: typeof AppCodexHelpRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/archive': {
@@ -207,7 +245,9 @@ declare module '@tanstack/react-router' {
 
 interface AppRouteChildren {
   AppArchiveRoute: typeof AppArchiveRoute
+  AppCodexHelpRoute: typeof AppCodexHelpRoute
   AppDashboardRoute: typeof AppDashboardRoute
+  AppNotificationsRoute: typeof AppNotificationsRoute
   AppSettingsRoute: typeof AppSettingsRoute
   AppSoulQueueRoute: typeof AppSoulQueueRoute
   AppCaseReviewIdRoute: typeof AppCaseReviewIdRoute
@@ -215,7 +255,9 @@ interface AppRouteChildren {
 
 const AppRouteChildren: AppRouteChildren = {
   AppArchiveRoute: AppArchiveRoute,
+  AppCodexHelpRoute: AppCodexHelpRoute,
   AppDashboardRoute: AppDashboardRoute,
+  AppNotificationsRoute: AppNotificationsRoute,
   AppSettingsRoute: AppSettingsRoute,
   AppSoulQueueRoute: AppSoulQueueRoute,
   AppCaseReviewIdRoute: AppCaseReviewIdRoute,

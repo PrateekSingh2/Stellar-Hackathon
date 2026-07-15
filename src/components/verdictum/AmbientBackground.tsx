@@ -101,16 +101,16 @@ export function AmbientBackground({ intensity = 1 }: { intensity?: number }) {
             animationDelay: `${s.d}s`,
             animationDuration: `${s.dur}s`,
             boxShadow: s.bright
-              ? `0 0 ${s.s * 5}px oklch(0.9 0.08 82), 0 0 ${s.s * 12}px oklch(0.82 0.15 82 / 0.4)`
+              ? `0 0 ${s.s * 5}px oklch(0.7 0.14 240), 0 0 ${s.s * 12}px oklch(0.7 0.14 240 / 0.5)`
               : `0 0 ${s.s * 3}px oklch(0.88 0.02 90 / 0.5)`,
           }}
         />
       ))}
 
-      {/* Gold motes */}
+      {/* Digital data motes */}
       {motes.map(m => (
         <span key={m.id}
-          className={m.rev ? "absolute rounded-full animate-float-rev" : "absolute rounded-full animate-float"}
+          className={m.rev ? "absolute rounded-none animate-float-rev" : "absolute rounded-none animate-float"}
           style={{
             left: `${m.x}%`, top: `${m.y}%`,
             width: m.size, height: m.size,
